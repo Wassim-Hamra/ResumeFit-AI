@@ -1,21 +1,19 @@
-import base64
 import os
 import streamlit as st
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
-from langchain.chains import create_retrieval_chain, create_history_aware_retriever
+from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_core.chat_history import BaseChatMessageHistory
-from langchain_core.runnables import RunnableWithMessageHistory
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 
-# Loading environ variables - for local use
+#
+#
+# # Loading environ variables - for local use
 # load_dotenv()
 # os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 # os.environ["LANGCHAIN_TRACING_V2"] = os.getenv("LANGCHAIN_TRACING_V2")
@@ -23,7 +21,7 @@ from langchain_huggingface import HuggingFaceEmbeddings
 # os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
 # os.environ["LANGCHAIN_PROJECT"] = os.getenv("LANGCHAIN_PROJECT")
 # os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
-
+#
 # for deployment
 os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 os.environ["LANGCHAIN_TRACING_V2"] = str(st.secrets["LANGCHAIN_TRACING_V2"])
@@ -140,3 +138,4 @@ if uploaded_files:
             for i, doc in enumerate(retrieved_docs):
                 st.write(doc.page_content)
                 st.write('-----------------------------')
+
