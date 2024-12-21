@@ -11,3 +11,4 @@ faiss-cpu
 tf-keras
 fastapi[uvicorn]
 pydantic
+fastapi
