@@ -15,10 +15,18 @@ api_app = FastAPI()
 from dotenv import load_dotenv
 import os
 
-if os.getenv("RAILWAY_ENVIRONMENT") is None:
-    load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
+load_dotenv()
+groq_api_key = os.getenv("GROQ_API_KEY")
+if not groq_api_key:
+    raise ValueError("GROQ_API_KEY is not set in the environment")
+
+os.environ["GROQ_API_KEY"] = groq_api_key
+
+hf_token = os.getenv("HF_TOKEN")
+if not hf_token:
+    raise ValueError("HF_TOKEN is not set in the environment")
+
+os.environ["HF_TOKEN"] = hf_token
 
 llm = ChatGroq(model_name="gemma2-9b-it")
 
