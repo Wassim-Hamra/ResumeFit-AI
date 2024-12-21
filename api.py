@@ -10,34 +10,26 @@ from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
 
-# Initialize FastAPI app
 api_app = FastAPI()
 
-# Load environment variables
 from dotenv import load_dotenv
 import os
 
-if os.getenv("RAILWAY_ENVIRONMENT") is None:  # Assuming Railway sets this in their environment
+if os.getenv("RAILWAY_ENVIRONMENT") is None:
     load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+groq_api_key = os.getenv("GROQ_API_KEY")
+hf_token = os.getenv("HF_TOKEN")
 
-# Initialize model
 llm = ChatGroq(model_name="gemma2-9b-it")
 
-
-# Pydantic model for input data
 class JobData(BaseModel):
     job_post: str
     cv: str
 
-# Function to process resumes into vector embeddings
 def create_vector_embedding(cv_text):
-    # Split CV into chunks
     splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=250)
     final_docs = splitter.split_documents([Document(page_content=cv_text)])
 
-    # Create vector store
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vectors = FAISS.from_documents(final_docs, embedding)
     return vectors
@@ -46,13 +38,11 @@ def create_vector_embedding(cv_text):
 # API Endpoint
 @api_app.get("/analyze")
 async def analyze_job(data: JobData):
-    # Extract job post and CV
     job_post = data.job_post
     cv_text = data.cv
-    # Embed CV into vector space
+
     vectors = create_vector_embedding(cv_text)
 
-    # Create retriever
     retriever = vectors.as_retriever()
     retrieved_docs = retriever.invoke(job_post)
     context = "\n\n".join([doc.page_content for doc in retrieved_docs])
