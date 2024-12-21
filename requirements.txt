@@ -3,12 +3,8 @@ langchain_community
 langchain_groq
 langchain_huggingface
 python-dotenv
-streamlit
-pypdf
-openai
-pypdf2
+
 faiss-cpu
-tf-keras
 uvicorn
-fastapi[uvicorn]
+fastapi
 pydantic
