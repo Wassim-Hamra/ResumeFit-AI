@@ -11,5 +11,6 @@ faiss-cpu
 tf-keras
 uvicorn
 fastapi[uvicorn]
+groq
 pydantic
 fastapi

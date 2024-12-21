@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-
+import groq
 api_app = FastAPI()
 
 from dotenv import load_dotenv
@@ -19,6 +19,7 @@ if os.getenv("RAILWAY_ENVIRONMENT") is None:
     load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 hf_token = os.getenv("HF_TOKEN")
+client = groq.Groq(api_key=groq_api_key)
 
 llm = ChatGroq(model_name="gemma2-9b-it")
 
