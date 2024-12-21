@@ -1,0 +1,5 @@
+node_modules/
+.env
+streamlit_app.py
+LICENCE
+test-api.js/
