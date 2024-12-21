@@ -9,6 +9,7 @@ openai
 pypdf2
 faiss-cpu
 tf-keras
+uvicorn
 fastapi[uvicorn]
 pydantic
 fastapi
