@@ -17,7 +17,8 @@ api_app = FastAPI()
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+if os.getenv("RAILWAY_ENVIRONMENT") is None:  # Assuming Railway sets this in their environment
+    load_dotenv()
 os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
 os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
