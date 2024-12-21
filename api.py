@@ -9,7 +9,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
-import groq
+
 api_app = FastAPI()
 
 from dotenv import load_dotenv
@@ -17,9 +17,8 @@ import os
 
 if os.getenv("RAILWAY_ENVIRONMENT") is None:
     load_dotenv()
-groq_api_key = os.getenv("GROQ_API_KEY")
-hf_token = os.getenv("HF_TOKEN")
-client = groq.Groq(api_key=groq_api_key)
+os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
+os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
 
 llm = ChatGroq(model_name="gemma2-9b-it")
 
@@ -41,9 +40,9 @@ def create_vector_embedding(cv_text):
 async def analyze_job(data: JobData):
     job_post = data.job_post
     cv_text = data.cv
-
     vectors = create_vector_embedding(cv_text)
 
+    # Create retriever
     retriever = vectors.as_retriever()
     retrieved_docs = retriever.invoke(job_post)
     context = "\n\n".join([doc.page_content for doc in retrieved_docs])
