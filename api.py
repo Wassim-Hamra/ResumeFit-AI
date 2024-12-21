@@ -35,7 +35,7 @@ class JobData(BaseModel):
     cv: str
 
 def create_vector_embedding(cv_text):
-    splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=250)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=350, chunk_overlap=100)
     final_docs = splitter.split_documents([Document(page_content=cv_text)])
 
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
