@@ -44,7 +44,7 @@ def create_vector_embedding(cv_text):
 
 
 # API Endpoint
-@api_app.get("/analyze")
+@api_app.post("/analyze")
 async def analyze_job(data: JobData):
     job_post = data.job_post
     cv_text = data.cv
