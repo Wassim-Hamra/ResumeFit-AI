@@ -1,0 +1,13 @@
+langchain
+langchain_community
+langchain_groq
+langchain_huggingface
+python-dotenv
+streamlit
+pypdf
+openai
+pypdf2
+faiss-cpu
+tf-keras
+fastapi[uvicorn]
+pydantic
