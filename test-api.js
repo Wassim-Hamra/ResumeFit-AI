@@ -1,5 +1,5 @@
 
-const API_URL = "https://railway.com/project/461ec1cd-2487-444b-a3cb-af68de0f3279/service/6bc1748f-6731-4114-9fe3-275b9495797e?environmentId=aa8dfc91-d1c4-4e82-ae6f-e9cf136f9f04&id=9cd39cb6-b778-4aee-a67c-b40a1b520792/analyze";
+const API_URL = "https://resumefit-ai.461ec1cd-2487-444b-a3cb-af68de0f3279.railway.app/analyze";
 
 async function analyzeJob(jobPost, cv) {
   try {
@@ -9,7 +9,7 @@ async function analyzeJob(jobPost, cv) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        job_post: "We are looking for an experienced JavaScript developer.",
+        job_post: jobPost,
         cv: cv,
       }),
     });
