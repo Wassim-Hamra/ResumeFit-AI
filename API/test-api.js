@@ -1,5 +1,5 @@
 
-const API_URL = "https://b049-102-152-209-152.ngrok-free.app/analyze";
+const API_URL = "https://b6fd-102-152-209-152.ngrok-free.app/analyze";
 
 async function analyzeJob(jobPost, cv) {
   try {
