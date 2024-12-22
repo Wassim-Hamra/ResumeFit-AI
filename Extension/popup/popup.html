@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <!-- Make sure this element exists -->
     <div id="popup-container" class="container">
         <img src="../assets/background.png.png" id="logo" alt="Logo" class="logo">
         <h1>AI Job Application Enhancer</h1>
@@ -15,8 +14,7 @@
         <label for="file-upload" class="upload-btn">Choose File</label>
         <input id="file-upload" type="file" style="display: none;" accept="application/pdf">
 
-        <button id="read-file-btn">Read PDF</button>
-        <pre id="file-content" style="white-space: pre-wrap; background: #f4f4f4; padding: 1em;"></pre>
+        <button id="read-file-btn" class="action-btn">Read PDF</button>
     </div>
 
     <script src="popup.js" type="module"></script>

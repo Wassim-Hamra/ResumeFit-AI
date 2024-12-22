@@ -4,7 +4,12 @@
   "version": "1.0.0",
   "description": "An extension that provides tailored recommendations based on job posts to optimize your CV",
   "action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
   },
   "background": {
     "service_worker": "background.js"
@@ -23,5 +28,10 @@
       "matches": ["https://www.linkedin.com/jobs/search/*"],
       "js": ["scripts/content.js"]
     }
-  ]
+  ],
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  }
 }
