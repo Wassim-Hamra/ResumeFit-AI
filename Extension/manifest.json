@@ -18,7 +18,8 @@
     "storage",
     "activeTab",
     "tabs",
-    "scripting"
+    "scripting",
+    "windows"
   ],
   "host_permissions": [
     "https://www.linkedin.com/*"

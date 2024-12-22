@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Job Details</h2>
+  <div id="job-details">
+    <p><strong>Title:</strong> <span id="job-title"></span></p>
+    <p><strong>Company:</strong> <span id="company-name"></span></p>
+    <p><strong>Description:</strong> <span id="job-description"></span></p>
+  </div>
+
+  <script>
+    // Retrieve job details from Chrome's local storage
+    chrome.storage.local.get('jobDetails', function(data) {
+      if (data.jobDetails) {
+        document.getElementById('job-title').textContent = data.jobDetails.title || 'N/A';
+        document.getElementById('company-name').textContent = data.jobDetails.company || 'N/A';
+        document.getElementById('job-description').textContent = data.jobDetails.description || 'N/A';
+      }
+    });
+  </script>
+</body>
+</html>
