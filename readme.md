@@ -14,6 +14,13 @@
 ## ***Architecture:***
 
 ![Architecture](Extension/assets/architecture.jpeg)
+* Extension : Une extension de navigateur analyse les CV (avec Pdf.js) et intercepte les offres d'emploi via un service worker. Ces données sont envoyées à une API.
+* API (FastAPI + Ngrok) : Reçoit les données de l'extension (CV et offres d'emploi) et les envoie aux autres modules pour traitement.
+* Splitter et Embeddings : Le texte des CV et des offres est découpé, puis transformé en données numériques (embeddings) grâce à un modèle Hugging Face.
+* Vector Store (FAISS) : Stocke ces données pour rechercher les similarités entre CV et offres d'emploi.
+* Retriever : Trouve les correspondances les plus pertinentes.
+* LLM (Gemma 2) : Analyse les correspondances et génère des recommandations.
+* Overlay : Affiche les recommandations directement dans l'extension.
 
 ## ***File Hierarchy:***
 
