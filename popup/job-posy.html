@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Post Extractor</title>
+  </head>
+  <body>
+    <h1>Job Post Information</h1>
+    <div id="job-details">
+      <p><strong>Title:</strong> <span id="title"></span></p>
+      <p><strong>Company:</strong> <span id="company"></span></p>
+      <p><strong>Description:</strong> <span id="description"></span></p>
+    </div>
+
+    <script>
+      chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.action === "extractedData") {
+          document.getElementById('title').textContent = message.data.title;
+          document.getElementById('company').textContent = message.data.company;
+          document.getElementById('description').textContent = message.data.description;
+        }
+      });
+    </script>
+  </body>
+</html>

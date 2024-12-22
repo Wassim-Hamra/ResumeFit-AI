@@ -1,0 +1,79 @@
+/* Mise en page générale */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 300px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fefefe; /* Fond bleu */
+    overflow: hidden;
+}
+
+/* Conteneur principal */
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Fond blanc transparent */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Animation du conteneur */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Titre */
+h1 {
+    font-size: 1.5em;
+    color: #000000; /* Texte noir */
+    font-weight: bold; /* Texte en gras */
+    margin-bottom: 20px;
+}
+
+/* Bouton de téléchargement stylé */
+.upload-btn {
+    display: inline-block;
+    background-color: #3498db; /* Nouveau fond bleu pour le bouton */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.upload-btn:hover {
+    background-color: #2980b9; /* Couleur plus foncée en survol */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Cache l'élément d'entrée pour le styliser */
+input[type="file"] {
+    display: none;
+}
+
+/* Logo */
+#logo {
+    width: 230px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+
+
