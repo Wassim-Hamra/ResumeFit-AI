@@ -41,6 +41,26 @@
 ### Terminal
 ![file](Extension/assets/terminal.png)
 
+## ***The Problem We faced***
+#### The Extension is succesfully retrieving each posts' title, company name and description
+![file](Extension/assets/extraction.png)
+
+#### Payload correctly configured
+![file](Extension/assets/payload.png)
+
+#### CORS: Cross-Origin Resource Sharing 
+#### is a security feature implemented by web browsers to control how resources on a web page can be requested from another domain or origin.
+#### CORS is designed to:
+#### Protect users from malicious websites trying to steal sensitive data.
+#### Ensure only trusted domains can access specific server resources.
+#### Without CORS, any website could make requests to a server that the user is authenticated with (like their bank) and perform unauthorized actions.
+### Our Solution
+![file](Extension/assets/code.png)
+#### The problem lies in the mode: "no-cors" options when calling the api which  disables the access to the response details due to browser security policies.
+
+
+
+
 ### Team 
   * **khalil kassentini**
   * **zyneb mrad**

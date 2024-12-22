@@ -27,32 +27,26 @@ function injectExtractionLogic() {
   chrome.storage.local.set({ jobDetails: extractedText }, function() {
     console.log("Job details saved!");
   });
-
-   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-console.log("HHH")
-  const API_URL = "https://b6fd-102-152-209-152.ngrok-free.app/analyze";
+  const API_URL = "https://74bd-102-152-209-152.ngrok-free.app/analyze";
   const jobPost = jobDescription;
   const cv = "(+216) 98786241 Tunis, Tunisia wassimhamraa@gmail.com ...";
-    console.log('h')
   async function analyzeJob(jobPost, cv) {
     try {
-
-        console.log('s')
+    console.log("Payload being sent:", {
+     job_post: jobPost,
+     cv: cv,
+    });
       const response = await fetch(API_URL, {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          job_post: jobPost,
-          cv: cv,
-        }),
+        body: JSON.stringify({job_post: jobPost, cv:cv}),
       });
-        console.log('n')
       if (!response.ok) {
         throw new Error(`API request failed with status ${response.status}`);
       }
-        console.log('z')
       const result = await response.json();
       console.log("API Response:", result);
       return result;
@@ -69,4 +63,4 @@ console.log("HHH")
     console.error("Error processing the request:", error);
   });
 
-})}
+}

@@ -9,8 +9,18 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.documents import Document
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
+from fastapi.middleware.cors import CORSMiddleware
+
 
 api_app = FastAPI()
+
+api_app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://www.linkedin.com/jobs/search"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 from dotenv import load_dotenv
 import os
@@ -46,6 +56,7 @@ def create_vector_embedding(cv_text):
 # API Endpoint
 @api_app.post("/analyze")
 async def analyze_job(data: JobData):
+    print("Received payload:", data.job_post)
     job_post = data.job_post
     cv_text = data.cv
     vectors = create_vector_embedding(cv_text)

@@ -22,7 +22,8 @@
     "windows"
   ],
   "host_permissions": [
-    "https://www.linkedin.com/*"
+    "https://www.linkedin.com/*",
+    "https://74bd-102-152-209-152.ngrok-free.app/analyze"
   ],
   "content_scripts": [
     {
