@@ -1,3 +1,10 @@
+# **🥳 Post-Hackathon**
+
+<img src="Extension/assets/hack_win1.jpg" width="500" /> <img src="Extension/assets/hack_win2.jpg" width="500" />
+<img src="Extension/assets/hack_win3.jpg" width="500" /><img src="Extension/assets/resultat.png" width="500" />
+
+
+
 # **🚀 ResumeFit AI: End to End RAG Application**
 
 ![file](Extension/assets/background.png.png)
