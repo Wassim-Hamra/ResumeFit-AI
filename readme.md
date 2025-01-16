@@ -1,7 +1,7 @@
 # **🥳 Post-Hackathon**
 
-<img src="Extension/assets/hack_win1.jpg" width="500" /> <img src="Extension/assets/hack_win2.jpg" width="500" />
-<img src="Extension/assets/hack_win3.jpg" width="500" /><img src="Extension/assets/resultat.png" width="500" />
+<img src="Extension/assets/hack_win1.jpg" width="350" /> <img src="Extension/assets/hack_win2.jpg" width="350" />
+<img src="Extension/assets/hack_win3.jpg" width="350" /><img src="Extension/assets/resultat.png" width="400" />
 
 
 
